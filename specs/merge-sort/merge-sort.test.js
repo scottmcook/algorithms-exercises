@@ -8,6 +8,16 @@
 
 const mergeSort = (nums) => {
   // code goes here
+  // base case, reutnr if length 1 or 0
+  if (nums.length == 1 || nums.length == 0) return nums;
+  // break into two smaller arrays
+  
+  // call mergeSort on left and right
+  // return the merge of left and right
+};
+
+const merge = (sortedArrayOne, sortedArrayTwo) => {
+  // return one sorted array
 };
 
 // unit tests
