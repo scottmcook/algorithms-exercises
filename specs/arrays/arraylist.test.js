@@ -19,11 +19,46 @@
 
 class ArrayList {
   // code goes here
+  constructor() {
+    // instantiate all variables
+    this.data = {};
+    this.length = 0;
+  }
+
+  // Not allowed to use arrays.
+  push(value) {
+    // add item to the end of the array
+    this.data[this.length] = value;
+    this.length++;
+  }
+  pop() {
+    const poppedItem = this.data[this.length - 1];
+    delete this.data[this.length - 1];
+    this.length--;
+    return poppedItem;
+  }
+  get(index) {
+    return this.data[index]
+  }
+  delete(index) {
+    // remotes item form the array and collapses it
+    const response = this.data[index];
+    // Underscore indicates a private method.
+    this._collapseTo(index)
+    return response;
+  }
+  _collapseTo(index) {
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
 }
 
 // unit tests
 // do not modify the below code
-describe.skip("ArrayList", function () {
+describe("ArrayList", function () {
   const range = (length) =>
     Array.apply(null, { length: length }).map(Number.call, Number);
   const abcRange = (length) =>
